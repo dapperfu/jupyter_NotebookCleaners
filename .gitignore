@@ -1,3 +1,10 @@
+# jupyter_NotebookCleaner
+bin/
+lib64
+pyvenv.cfg
+share/
+
+## Github Python Ignores.
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
