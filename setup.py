@@ -2,18 +2,21 @@ import setuptools
 from setuptools import setup
 
 import os
+
 LOCAL_DIR = os.path.dirname(os.path.abspath(__file__))
+
 
 import versioneer
 
 def read_requirements(path="requirements.txt"):
     requirements = []
 
-    with open(os.path.join(LOCAL_DIR, "requirements.txt"), "r") as infile:
-        for line in infile:
+    with open(path, "r") as fid:
+        for line in fid.readlines():
+            if line.startswith("#"):
+                continue
             line = line.strip()
-            if line and not line[0] == "#":  # ignore comments
-                requirements.append(line)
+            requirements.append(line)
     return requirements
 
 requirements = read_requirements()
