@@ -4,6 +4,7 @@ from setuptools import setup
 import os
 LOCAL_DIR = os.path.dirname(os.path.abspath(__file__))
 
+import versioneer
 
 def read_requirements(path="requirements.txt"):
     requirements = []
@@ -19,6 +20,8 @@ requirements = read_requirements()
 
 
 setup(
+    version=versioneer.get_version(),
+    cmdclass=versioneer.get_cmdclass(),
     name='notebookcleaner',
     description="Cleanup Jupyter Notebooks",
     author="Jed",
