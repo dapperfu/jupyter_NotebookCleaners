@@ -5,7 +5,6 @@ import os
 
 LOCAL_DIR = os.path.dirname(os.path.abspath(__file__))
 
-
 import versioneer
 
 def read_requirements(path="requirements.txt"):
@@ -20,7 +19,7 @@ def read_requirements(path="requirements.txt"):
     return requirements
 
 requirements = read_requirements()
-
+test_requirements = read_requirements(path="requirements_test.txt")
 
 setup(
     version=versioneer.get_version(),
@@ -32,6 +31,7 @@ setup(
     packages=setuptools.find_packages(),
     zip_safe=False,
     install_requires=requirements,
+    extras_require={"test": test_requirements},
     include_package_data=True,
     entry_points={
         'nbc_cleaners': [

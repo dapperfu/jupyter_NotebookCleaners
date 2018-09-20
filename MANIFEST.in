@@ -1,2 +1,4 @@
 include versioneer.py
 include notebookcleaner/_version.py
+include requirements.txt
+include requirements_test.txt
