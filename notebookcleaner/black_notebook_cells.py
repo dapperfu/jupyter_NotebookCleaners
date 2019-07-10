@@ -3,6 +3,8 @@
 import black
 import nbformat
 
+mode_ = black.FileMode(
+)
 
 def black_notebook_cells(notebook=None):
     with open(notebook, "rb") as fp:
@@ -23,7 +25,7 @@ def black_notebook_cells(notebook=None):
         if code_cell["source"] == "":
             continue
         try:
-            code_cell["source"] = black.format_str(code_cell["source"], line_length=80)
+            code_cell["source"] = black.format_str(code_cell["source"], mode=mode_)
         except:
             print("Failed: {}".format(code_cell["source"]))
 
