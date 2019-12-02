@@ -1,3 +1,4 @@
 black
-isort
+pyupgrade
+reorder-python-imports
 nbformat
