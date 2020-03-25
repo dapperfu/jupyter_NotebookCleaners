@@ -9,7 +9,6 @@ import versioneer
 
 def read_requirements(path="requirements.txt"):
     requirements = []
-
     with open(path, "r") as fid:
         for line in fid.readlines():
             if line.startswith("#"):
@@ -34,11 +33,12 @@ setup(
     extras_require={"test": test_requirements},
     include_package_data=True,
     entry_points={
-        'nbc_cleaners': [
+        'nbc_plugins': [
             'bubble_imports = notebookcleaner:bubble_notebook_imports',
-            'blacken_cells = notebookcleaner:black_notebook_cells',
-            'isort_notebook_cells = notebookcleaner:isort_notebook_cells',
             'clean_empty = notebookcleaner:clean_empty_notebook_cells',
+            'black = notebookcleaner:black_notebook_cells',
+            'reorder-python-inputs = notebookcleaner:reorder_python_inputs',
+            'pyupgrade = notebookcleaner:pyupgrade',
         ],
         "console_scripts": [
             "notebookcleaner=notebookcleaner:main",

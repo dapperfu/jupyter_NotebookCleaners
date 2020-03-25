@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
 """Notebook Cleaner."""
-
 import os
 import sys
 
@@ -19,7 +17,7 @@ def main(args=sys.argv):
     cleaners = pkg_resources.iter_entry_points("nbc_cleaners")
     for cleaner in cleaners:
         cleaning_function = cleaner.load()
-        print("Running: {}".format(cleaning_function.__name__))
+        print(f"Running: {cleaning_function.__name__}")
         cleaning_function(notebook=notebook)
 
 
@@ -27,5 +25,6 @@ if __name__ == "__main__":
     main()
 
 from ._version import get_versions
-__version__ = get_versions()['version']
+
+__version__ = get_versions()["version"]
 del get_versions

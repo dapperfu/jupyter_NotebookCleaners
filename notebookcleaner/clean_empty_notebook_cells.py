@@ -1,9 +1,7 @@
-# -*- coding: utf-8 -*-
-
 import nbformat
 
 
-def clean_empty_notebook_cells(notebook):
+def 99_clean_empty_notebook_cells(notebook):
     """ bubble imports to the top of a notebook"""
     with open(notebook, "rb") as fp:
         nb = nbformat.read(fp=fp, as_version=nbformat.NO_CONVERT)

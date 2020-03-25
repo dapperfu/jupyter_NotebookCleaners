@@ -3,7 +3,7 @@ import os
 import nbformat
 
 
-class NotebookCleaner(object):
+class NotebookCleaner:
     def __init__(self, notebook):
         notebook_t = type(notebook)
         if notebook_t in ["str"]:
